@@ -17,6 +17,7 @@ function App() {
     setNombre('');
     setCorreo('');
     setClave('');
+    //hola
     //console.log(Registrado) 
   }
 
