@@ -17,6 +17,11 @@ export const Usuarios = [
         nombre: "Carlos Arturo",
         correo: "carlosAro@hotmail.com",
         clave: "carlos456"
+    },
+    {
+        id: 3,
+        nombre: "Felipe Castañeda",
+        clave: "felipe231"
     }
 ]
 
