@@ -1,20 +1,54 @@
-import { buscarUsuarios } from "./Funciones.";
 
-export const Usuarios = []
+export const Usuarios = [
+    {
+        id: 0,
+        nombre: "Juan Jose",
+        correo: "juanjo@gmail.com",
+        clave: "clave123"
+    },
+    {
+        id: 1,
+        nombre: "Sofia Geraldine",
+        correo: "sofipz@hotmail.com",
+        clave: "sofia123"
+    },
+    {
+        id: 2,
+        nombre: "Carlos Arturo",
+        correo: "carlosAro@hotmail.com",
+        clave: "carlos456"
+    }
+]
+
+// console.log(ultimoUsuario)
+// console.log("Registrao con exito "+ Usuarios.correo);
+
 
 export function registroUsuario(nombre, correo, clave) {
-    Usuarios.push([nombre, correo, clave]);
+    const ultimoUsuario = Usuarios[(Usuarios.length -1)].id;
+    Usuarios.push({
+        id: (ultimoUsuario+1),
+        nombre: nombre,
+        correo: correo,
+        clave: clave
+    });
+
     for (var i = 0; i < Usuarios.length; i++) {
-        for (var j = 0; j < Usuarios[0].length; j++) {
-            console.log(Usuarios[i][j])
-        }
+        console.log(Usuarios[i]);
     }
-    buscarUsuarios(correo);
+    localStorage.setItem("usuariosRegistraos", JSON.stringify(Usuarios))
 }
 
 export default function Registro() {
     return (
-        <div> 
+        <div>
+            <h1>Usuarios: </h1>
+            {Usuarios.map(users => (
+                <div key = {users.id}>
+                    <h2>{users.nombre}</h2>
+                </div>
+                )
+            )}
         </div>
     )
 }

@@ -1,9 +1,9 @@
 import './App.css';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Admin, { Correo, Clave } from './pages/Admin.jsx';
-import {registroUsuario} from './pages/Registro';
-
+import { Correo, Clave } from './pages/Admin.jsx';
+import { registroUsuario } from './pages/Registro';
+import { buscarUsuarios } from './pages/Funciones.';
 
 //Creamos un componente
 function App() {
@@ -29,7 +29,23 @@ function App() {
   const [clave, setClave] = useState('');
   const [nombre, setNombre] = useState('');
 
-  const errorCorreo = ValidarCampos(correo) ? 'correoBien':'errorCorreo';
+  const errorCorreo =  ValidarCampos(correo) ? 'correoBien' : 'errorCorreo';
+  
+  //Funcion para saber que se logeo como usuario y lo rediriga a la pagina usuario
+  const LogginLikeUser = (nombreU,correoU,claveU,AdminUser) => {
+    if(ValidarCampos(correoU)){
+      if(!AdminUser){
+        registroUsuario(nombreU,correoU,claveU);
+        navigate("/User");
+      }else{
+        if(login(correo,clave)){
+          navigate("/Admin");
+        }else{
+          navigate("/User")
+        }
+      }
+    }
+  }
 
   return (
     <div className="login-page">
@@ -37,18 +53,17 @@ function App() {
         <form className={formRegistro}
           onSubmit={ev => {
             ev.preventDefault();
-            {ValidarCampos(correo)? registroUsuario(nombre,correo,clave) : null};
-            {ValidarCampos(correo)? navigate("/User") : null};
-          }} 
+            LogginLikeUser(nombre,correo,clave,false);
+          }}
         >
           <input className='nombre' type="text" placeholder="nombre" required
             onChange={ev => setNombre(ev.target.value)}
           />
 
           <input className="correo" value={correo} type="text" minLength="9" maxLength="50" placeholder="correo electrónico" required
-            onChange={ev => setCorreo(ev.target.value)} 
+            onChange={ev => setCorreo(ev.target.value)}
           />
-            <span className={errorCorreo}>Correo Incorrecto</span>
+          <span className={errorCorreo}>Correo Incorrecto</span>
 
           <input className="clave" value={clave} type="password" placeholder="contraseña" required
             onChange={ev => setClave(ev.target.value)}
@@ -64,8 +79,7 @@ function App() {
         <form className={formInicio}
           onSubmit={ev => {
             ev.preventDefault();
-            {loginAdmin(correo, clave) ? navigate("/Admin") : null };
-            //console.log(correo + "  " + clave)
+            LogginLikeUser("",correo,clave,true);
           }}
         >
           <input className="correo" value={correo} type="text" minLength="9" maxLength="50" placeholder="correo electrónico" required
@@ -86,23 +100,27 @@ function App() {
   )
 }
 //Funcion que se encarga de verificar el correo y la clave 
-const loginAdmin = (correo, clave) => {
+const login = (correo, clave) => {
   if (correo === Correo && clave === Clave) {
-    alert("Logeado con exito")
+    alert("Logeado como Administrador") 
     return true;
-  } else {
-    alert("correo o contraseña incorrectos")
-    return false;
   }
+  let Usuario = buscarUsuarios(correo)
+  // console.log(correo+" "+" ")
+  if(Usuario!==null){
+    if(correo === Usuario.correo && clave === Usuario.clave){
+      alert("Logeo para usuario concedido")
+    }else{
+        alert("usuario o contraseña incorrectos")
+      }
+  }else{
+    alert("El usuario no existe")
+  }
+  return false
 }
-
-// const login = (correo, clave) => {
-//   if(correo === )
-// }
 
 //Funcion de validación de campos
 const ValidarCampos = (correo) => {
-  
   return correo.includes('@') && correo.includes('.');
   //false = contiene numeros
 }
