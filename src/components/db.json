@@ -1,0 +1,60 @@
+{
+  "user": [
+    {
+      "estado_emocional": "Aburrido",
+      "edad": "15-20 años",
+      "sexo": "Femenino",
+      "horario_disponible": "1:00pm-3:00pm",
+      "id": 3
+    },
+    {
+      "estado_emocional": "Aburrido",
+      "edad": "15-20 años",
+      "sexo": "Femenino",
+      "horario_disponible": "1:00pm-3:00pm",
+      "id": 4
+    },
+    {
+      "estado_emocional": "Alegre",
+      "edad": "+45 años",
+      "sexo": "No Binario",
+      "horario_disponible": "8:00pm-10:00pm",
+      "id": 5
+    },
+    {
+      "estado_emocional": "Deprimido",
+      "edad": "20-30 años",
+      "sexo": "No Binario",
+      "horario_disponible": "1:00pm-3:00pm",
+      "id": 6
+    },
+    {
+      "estado_emocional": "Alegre",
+      "edad": "15-20 años",
+      "sexo": "Femenino",
+      "horario_disponible": "8:00am-10:00am",
+      "id": 7
+    },
+    {
+      "estado_emocional": "Alegre",
+      "edad": "15-20 años",
+      "sexo": "Femenino",
+      "horario_disponible": "8:00am-10:00am",
+      "id": 8
+    },
+    {
+      "estado_emocional": "Alegre",
+      "edad": "15-20 años",
+      "sexo": "Femenino",
+      "horario_disponible": "8:00am-10:00am",
+      "id": 9
+    },
+    {
+      "estado_emocional": "Alegre",
+      "edad": "15-20 años",
+      "sexo": "Femenino",
+      "horario_disponible": "8:00am-10:00am",
+      "id": 10
+    }
+  ]
+}
