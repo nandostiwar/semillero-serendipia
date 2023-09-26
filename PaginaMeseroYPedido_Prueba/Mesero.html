@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<meta charset="UTF-8" />
+
+<head>
+    <link rel="stylesheet" type="text/css" href="Global.css">
+    <link rel="stylesheet" type="text/css" href="Pedido.css">
+    <title>Mesero Info</title>
+</head>
+
+<body>
+    <div>
+        <form class="formPedido">
+            <h2 class="Linealh2" data-after-content={nombreMesero}> Mesero: </h2>
+            <label class="lblMesas">Mesas<br>  Disponibles: </label>
+            <input class="mesas" value="2" readonly>
+        <div class="tabla-container">
+            <table class="tabla-form">
+                <thead>
+                    <tr>
+                        <th class="ttlo-form" colspan="3">Mesas a Cargo:</th>
+                    </tr>
+                    <tr class="espacio-row">
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr class="dps-ttlo">
+                        <th>N°Mesa</th>
+                        <th>Cantidad Clientes</th>
+                        <th>Ocupada</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>
+                            <input type="checkbox" checked>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>0</td>
+                        <td>
+                            <input type="checkbox">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>0</td>
+                        <td>
+                            <input type="checkbox">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <button class="btnPedido">Tomar Pedido</button>
+        </form>
+    </div>
+</body>
+
+</html>
