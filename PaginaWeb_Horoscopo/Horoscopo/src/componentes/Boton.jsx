@@ -1,5 +1,14 @@
-export default Boton = () => {
+//Vamos a crear el componente boton 
+import './Boton.css'
+
+export function Boton({texto}) {
   return (
-    <div>Boton</div>
+    <button className='button'> 
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      {texto} 
+    </button>
   )
 }
