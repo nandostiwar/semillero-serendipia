@@ -1,0 +1,169 @@
+/* Contorno por fuera de la tabla */
+.tabla-container {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    font-size: 17px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid white;
+    overflow: auto;
+}
+
+/* Estilo global de la tabla  */
+.tabla-form {
+    cursor: default;
+    display: block;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 17px;
+    border-spacing: 5.7px;
+}
+
+/* Esto es para alinear a la izquierda el titulo de la tabla */
+.ttlo-form {
+    text-align: left;
+    font-size: 20px;
+    border-bottom: 1px solid white;
+    padding-bottom: 5px;
+}
+
+/* Para agregarle espacio a las cabeceras de la tabla */
+.tabla-form thead tr {
+    font-size: 16.5px;
+    width: 100%;
+    padding-bottom: 5px;
+}
+
+/* Para que las cabeceras tengan un color chevere */
+.tabla-form thead .dps-ttlo th{
+    padding: 7px;
+    border-radius: 10px;
+    background-color: rgba(222, 184, 135, 0.2);
+}
+
+/* Para cuando le hagamos hover a la cabecera del titulo */
+.tabla-form thead .dps-ttlo:hover{
+    background-color: rgba(222, 184, 135, 0.3);
+    font-weight: bold;
+}
+
+/* Para separar las columnas en 3 del mismo tamaño, y como son 3
+cabeceras, pues entonces 100/3 da 33,3 periodico y el nowrap para 
+que no haga saltos de linea */
+.tabla-form th{
+    white-space: nowrap;
+    width: 33%;    
+}
+
+
+/* EMPEZAMOS CON EL tbody */
+/* Esto es para darle el borde a la tabla */
+.tabla-form tbody td {
+    padding: 6px;
+    font-size: 15px;
+    border-radius: 10px;
+}
+
+/* Cuando pongamos el mouse encima de una fila */
+.tabla-form tbody tr:hover {
+    font-weight: bold;
+    /* text-shadow: 0 0 0px white; */
+}
+
+.tabla-form tbody td:hover{
+    padding: 8px;
+}
+/* Cuando se le haga hover al checkbox y este checked se hara una sombrita color amarilloverdoso */
+.tabla-form tbody tr:hover input[type="checkbox"]:checked {
+    box-shadow: 0 0 10px yellowgreen;
+}
+/* Cuando se le haga hover al checkbox y este sin checked se hara una sombrita color blanco */
+.tabla-form tbody tr:hover input[type="checkbox"]{
+    box-shadow: 0 0 4px white;
+}
+
+/* Estilo zebra */
+/* Empezamos con los tr impares */
+tbody tr:nth-of-type(odd) {
+    background: #2a2d30;
+
+}
+
+/* Los tr pares */
+tbody tr:nth-of-type(even) {
+    background: #343a40;
+}
+
+
+/* Para el input type checkbox */
+/* Esto es para alinear los checkbox de la tabla al centro */
+
+.tabla-form tbody input {
+    display: block;
+    margin: 0 auto;
+    appearance: none;
+    cursor: default;
+    background-color: transparent;
+    padding: 5px;
+    border-radius: 20px;
+    border: 1px solid white;
+}
+
+.tabla-form tbody input[type="checkbox"]:checked {
+    border: 1px solid greenyellow;
+    background-color: greenyellow;
+}
+
+/* Clase del contenedor del boton */
+/* Para alinear donde queramos */
+.container-btn{
+    text-align: left;
+}
+
+/* Clase del boton */
+.btnTomarPedido {
+    box-shadow: 0 0 5px burlywood;
+    font-size: 18px;
+    padding: 4px 20px;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    background-color: transparent;
+    /* color de fuente */
+    color: darkgray;
+    border: 3px solid #715d42;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.btnTomarPedido:hover {
+    text-shadow: 0 0 2px black;
+    box-shadow: 0 0 5px burlywood,
+    0 0 90px #715d42;
+    font-style: oblique;
+    font-weight: bold;
+    color: black;
+    border: 3px solid burlywood;
+}
+
+.btnTomarPedido::after {
+    content: "";
+    background: burlywood;
+    /* color de fondo hover */
+    position: absolute;
+    z-index: -1;
+    display: block;
+    left: -100%;
+    right: 100%;
+    -webkit-transition: all 0.50s;
+    transition: all 0.50s;
+}
+
+.btnTomarPedido:hover::after {
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    -webkit-transition: all 0.50s;
+    transition: all 0.50s;
+}

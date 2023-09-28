@@ -1,0 +1,50 @@
+{
+    "Meseros": [
+        {
+            "id": 1,
+            "Nombre": "Jean Carlos"
+        },
+        {
+            "id": 2,
+            "Nombre": "Daniela Lopez"
+        }
+    ],
+    
+    "Mesas": [
+        {
+            "MesaId": 1,
+            "MeseroId": 1,
+            "CantidadClientes": 4
+        },
+        {
+            "MesaId": 2,
+            "MeseroId": 1,
+            "CantidadClientes": 2
+        },
+        {
+            "MesaId": 3,
+            "MeseroId": 2,
+            "CantidadClientes": 3
+        },
+        {
+            "MesaId": 4,
+            "MeseroId": 1,
+            "CantidadClientes": 0
+        },
+        {
+            "MesaId": 5,
+            "MeseroId": 2,
+            "CantidadClientes": 0
+        },
+        {
+            "MesaId": 6,
+            "MeseroId": 2,
+            "CantidadClientes":1
+        },
+        {
+            "MesaId": 7,
+            "MeseroId": 1,
+            "CantidadClientes": 5
+        }
+    ]
+}

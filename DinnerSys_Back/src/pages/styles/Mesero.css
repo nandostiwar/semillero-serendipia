@@ -1,0 +1,28 @@
+.formMesero {
+    top: 140px;
+    left: 230px;
+    max-width: 400px;
+}
+
+.formMesero .Linealh2{
+    text-align: left;
+}
+
+.formMesero .lblMesas {
+    text-align: left;
+    white-space: pre-wrap;
+}
+
+.formMesero .mesas {
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    color: black;
+    background-color: burlywood;
+    border-radius: 8px;
+    border-color: transparent;
+    margin-left: 4px;
+    width: 20px;
+    height: 15px;
+}
+
