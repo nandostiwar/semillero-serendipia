@@ -23,7 +23,7 @@ export default function Tabla({Titulo, Th1, Th2, Th3, TextoBoton, Mesas, IdMeser
                     <tbody>
                         {/* El Mesas.filter((mesa)=>mesa.MeseroId === IdMesero) se hace para que
                         traiga solo las mesas que tiene el mesero, haciendo una relacion entre estos dos datos, Mesa y Mesero*/}
-                        {Mesas.filter((mesa)=> mesa.MeseroId === IdMesero ).map(mesas => (
+                        {Mesas.map(mesas => (
                             <tr key={mesas.MesaId}>
                                 <td> {mesas.MesaId} </td>
                                 <td> {mesas.CantidadClientes} </td>
@@ -34,7 +34,7 @@ export default function Tabla({Titulo, Th1, Th2, Th3, TextoBoton, Mesas, IdMeser
                 </table>
             </div>
             <div className='container-btn'>
-                <button className="btnTomarPedido"> {TextoBoton} </button>
+                <button className="btnFormularios"> {TextoBoton} </button>
             </div>
         </div>
         </>

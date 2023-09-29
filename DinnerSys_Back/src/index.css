@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap'); 
+
+
 body {
   height: 100vh;
   font-size: 20px;
@@ -13,9 +16,9 @@ body {
 form {
   background-color: #252525;
   display: block;
-  border: 1px solid white;
+  border: 5px solid darkgray;
   border-radius: 15px;
-  padding: 15px 20px;
+  padding: 25px;
   max-width: 100%;
   margin: 50px;
   position: absolute;
@@ -48,4 +51,53 @@ form input {
   margin-top: 4px;
   margin-left: 1px;
   font-size: 18px;
+}
+
+
+/* Clase del boton */
+.btnFormularios {
+  box-shadow: 0 0 5px burlywood;
+  font-size: 18px;
+  padding: 4px 20px;
+  border-radius: 15px;
+  margin-bottom: 10px;
+  background-color: transparent;
+  /* color de fuente */
+  color: darkgray;
+  border: 3px solid #715d42;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.btnFormularios:hover {
+  text-shadow: 0 0 2px black;
+  box-shadow: 0 0 5px burlywood,
+  0 0 90px #715d42;
+  font-style: oblique;
+  font-weight: bold;
+  color: black;
+  border: 3px solid burlywood;
+}
+
+.btnFormularios::after {
+  content: "";
+  background: burlywood;
+  /* color de fondo hover */
+  position: absolute;
+  z-index: -1;
+  display: block;
+  left: -100%;
+  right: 100%;
+  -webkit-transition: all 0.50s;
+  transition: all 0.50s;
+}
+
+.btnFormularios:hover::after {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  -webkit-transition: all 0.50s;
+  transition: all 0.50s;
 }

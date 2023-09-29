@@ -2,11 +2,15 @@
     "Meseros": [
         {
             "id": 1,
-            "Nombre": "Jean Carlos"
+            "Nombre": "Jean Carlos",
+            "correo": "jeancarlos@restaurante.com",
+            "clave": "jeancarlos"
         },
         {
             "id": 2,
-            "Nombre": "Daniela Lopez"
+            "Nombre": "Daniela Lopez",
+            "correo": "danielalopez@restaurante.com",
+            "clave": "danielalopez"
         }
     ],
     
