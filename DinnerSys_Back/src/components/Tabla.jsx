@@ -1,7 +1,9 @@
+import { Link } from 'react-router-dom';
 import './Tabla.css';
+import { useState } from 'react';
 
 
-export default function Tabla({Titulo, Th1, Th2, Th3, TextoBoton, Mesas, IdMesero}) {
+export default function Tabla({Titulo, Th1, Th2, Th3, TextoBoton, Mesas}) {
     return (
         <>
         <div>
@@ -27,14 +29,17 @@ export default function Tabla({Titulo, Th1, Th2, Th3, TextoBoton, Mesas, IdMeser
                             <tr key={mesas.MesaId}>
                                 <td> {mesas.MesaId} </td>
                                 <td> {mesas.CantidadClientes} </td>
-                                <td> <input type='checkbox' defaultChecked={ mesas.CantidadClientes>0} /> </td>
+                                <td> <input type='checkbox' defaultChecked={ mesas.CantidadClientes>0} disabled/> </td>
                             </tr>
                         ) )}
                     </tbody>
                 </table>
             </div>
             <div className='container-btn'>
-                <button className="btnFormularios"> {TextoBoton} </button>
+                <Link to="/Pedido">
+                    <button className="btnFormularios"> {TextoBoton} </button>
+                </Link>
+                
             </div>
         </div>
         </>

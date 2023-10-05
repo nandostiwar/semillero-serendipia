@@ -1,30 +1,39 @@
-import React from 'react';
 import './index.css';
+import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App.jsx';
-import Pedido from './pages/Pedido.jsx';
-import Mesero from './pages/Mesero.jsx';
-import {createBrowserRouter,RouterProvider} from 'react-router-dom';
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { ProtectedRoute } from './PRouteContent/ProtectedRoute';
 import Login from './pages/Login';
+import Mesero from './pages/Mesero';
+import Pedido from './pages/Pedido';
+import { AuthProvider } from './auth/AuthProvider';
+import Navbar from './components/Navbar';
+import MeseroHome from './pages/MeseroHome';
 
 const routes = createBrowserRouter([
   {
     path: "/",
-    element: <App/>
-  },
-  {
-    path: "/Login",
-    element: <Login/>
+    element: <Login />
   },
   {
     path: "/Mesero/:MsroId",
-    element: <Mesero/>
+    element: <ProtectedRoute />,
+    children: [
+      {
+        path: "/Mesero/:MsroId",
+        element: <Mesero />
+      },
+      {
+        path: "/Mesero/:MsroId/Home",
+        element: <MeseroHome />
+      }
+    ],
   },
   {
     path: "/Pedido",
-    element: <Pedido/>
+    element: <Pedido />
   }
 ])
 
@@ -33,8 +42,11 @@ const queryClient = new QueryClient();
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
-      <RouterProvider router={routes}/>
-      <ReactQueryDevtools/>
+      <AuthProvider>
+        <Navbar/>
+        <RouterProvider router={routes} />
+      </AuthProvider>
+      <ReactQueryDevtools />
     </QueryClientProvider>
   </React.StrictMode>,
 )

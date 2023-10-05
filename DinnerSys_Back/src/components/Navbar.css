@@ -1,0 +1,12 @@
+.navbar{
+    position: static;
+    width: 100%;
+    top: 0;
+    background-color: #272727;
+    overflow: hidden;
+    z-index: 3;
+}
+div nav ul{
+    display: inline-block;
+    /* border: 1px solid black; */
+}

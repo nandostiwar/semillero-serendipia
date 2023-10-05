@@ -1,7 +1,9 @@
 .formMesero {
-    top: 140px;
-    left: 230px;
-    max-width: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    max-width: 420px;
+    transform: translate(-50%, -50%);
 }
 
 .formMesero .Linealh2{
@@ -9,6 +11,7 @@
 }
 
 .formMesero .lblMesas {
+    margin-left: 16px;
     text-align: left;
     white-space: pre-wrap;
 }

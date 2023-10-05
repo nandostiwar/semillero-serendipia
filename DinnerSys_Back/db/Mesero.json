@@ -4,13 +4,15 @@
             "id": 1,
             "Nombre": "Jean Carlos",
             "correo": "jeancarlos@restaurante.com",
-            "clave": "jeancarlos"
+            "clave": "jeancarlos",
+            "rol": "mesero"
         },
         {
             "id": 2,
             "Nombre": "Daniela Lopez",
             "correo": "danielalopez@restaurante.com",
-            "clave": "danielalopez"
+            "clave": "danielalopez",
+            "rol": "mesero"
         }
     ],
     
