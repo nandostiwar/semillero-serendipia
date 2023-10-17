@@ -17,22 +17,30 @@ export const getMesasXMesero = async (Id_Mesero) => {
     return MesasXMesero.data;
 }
 
+//UpdateMesa --> Para actualizar Mesa por Id
+export const UpdateMesa = (newMesa) => RestauranteAPI.put(`/Mesas/${newMesa.id}`,newMesa);
+
+//DeleteMesa --> Para eliminar una Mesa por Id
+export const DeleteMesa = (MesaId) => RestauranteAPI.delete(`/Mesas/?MesaId=${MesaId}`);
+
+
+
 
 // CRUD PARA MESEROS
 // GetMeseros --> Obtener todos los meseros
 export const getMesero = async () => {
-    const Meseros = await RestauranteAPI.get('/Meseros') ;
+    const Meseros = await RestauranteAPI.get('/Meseros');
     return Meseros.data;
 }
 
 //GetMeserosId --> Obtener Mesero por Id
-export const getMeseroId = async (id) =>{
+export const getMeseroId = async (id) => {
     const Mesero = await RestauranteAPI.get(`/Meseros/${id}`);
     return Mesero.data;
 }
 
 //GetMeserosCorreo --> Obtener Mesero por Correo
-export const getMeseroCorreo = async(correo) =>{
+export const getMeseroCorreo = async (correo) => {
     const Mesero = await RestauranteAPI.get(`/Meseros/?correo=${correo}`);
     return Mesero.data;
 } 

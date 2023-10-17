@@ -11,6 +11,16 @@ import Pedido from './pages/Pedido';
 import { AuthProvider } from './auth/AuthProvider';
 import Navbar from './components/Navbar';
 import MeseroHome from './pages/MeseroHome';
+import Carrusel from './components/Carrusel';
+
+/* Instalar: 
+react-router-dom -> para las rutas y navegación por las páginas
+
+npm i react-router-dom 
+
+Rutas protegidas 
+https://www.youtube.com/watch?v=q4ywr3eZmk0&ab_channel=VidaMRR-Programacionweb
+*/
 
 const routes = createBrowserRouter([
   {
@@ -26,15 +36,16 @@ const routes = createBrowserRouter([
         element: <Mesero />
       },
       {
+        path: "/Mesero/:MsroId/Pedidos",
+        element: <Pedido />
+      },
+      {
         path: "/Mesero/:MsroId/Home",
         element: <MeseroHome />
       }
     ],
   },
-  {
-    path: "/Pedido",
-    element: <Pedido />
-  }
+
 ])
 
 const queryClient = new QueryClient();
@@ -43,10 +54,10 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
-        <Navbar/>
+        <Navbar />
         <RouterProvider router={routes} />
       </AuthProvider>
       <ReactQueryDevtools />
     </QueryClientProvider>
-  </React.StrictMode>,
+  </React.StrictMode>
 )

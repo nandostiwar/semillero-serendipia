@@ -2,11 +2,12 @@
     position: absolute;
     top: 50%;
     left: 50%;
+    margin: 50px;
     max-width: 420px;
     transform: translate(-50%, -50%);
 }
 
-.formMesero .Linealh2{
+.formMesero .Linealh2 {
     text-align: left;
 }
 
@@ -16,7 +17,7 @@
     white-space: pre-wrap;
 }
 
-.formMesero .mesas {
+.formMesero .input-mesas {
     font-size: 15px;
     font-weight: bold;
     text-align: center;
@@ -28,4 +29,3 @@
     width: 20px;
     height: 15px;
 }
-

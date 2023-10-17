@@ -1,0 +1,90 @@
+.formSinMesa {
+  width: 30%;
+}
+
+.container-formulariosPP {
+  display: flex; 
+}
+
+.formPedidos, .formlstProductos{
+  position: relative;
+  margin: 1%;
+  width: 20%;
+  left: 30%;
+  top: 250px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.formPedidos .Linealh2 {
+  margin-bottom: 10%;
+  font-size: 25px;
+}
+
+.formPedidos .user-box{
+  position: relative;
+}
+
+.user-box select{
+  box-sizing: content-box;
+  width: 80%;
+  display: inline;
+  padding: 10px 10px;
+  font-size: 17px;
+  color: darkgray;
+  margin-bottom: 50px;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid lightgray;
+  background: transparent;
+}
+
+.user-box select option{
+  background-color: #232323;
+}
+
+.user-box select:valid~label,
+.user-box select:focus~label {
+    top: -25px;
+    color: burlywood;
+    font-size: 16px;
+}
+
+.formlstProductos .carrusel-pedidos{
+  position: relative;
+  overflow: scroll;
+  border: 3px solid gray;
+  border-radius: 20px;
+  padding: 10px 15px;
+  max-height: 50%;
+  margin: 0 auto;
+  justify-content: center;
+  text-align: left;
+
+  &::-webkit-scrollbar {
+      display: none;
+      /* Para ocultar la barra de navegación */
+  }
+}
+
+.formlstProductos .carrusel-pedidos input[type="checkbox"] {
+  flex: 1 0 auto;
+  display: inline-block;
+  appearance: none;
+  text-align: right;
+  margin: 10px 7px auto;
+  padding: 6px;
+  border: 2px solid aqua;
+  background-color: transparent;
+  border-radius: 50%;
+}
+
+.formlstProductos .carrusel-pedidos input[type="checkbox"]:hover, label:hover{
+  cursor: pointer;
+}
+
+.formlstProductos .carrusel-pedidos input[type="checkbox"]:checked{
+  border-radius: 50%;
+  background-color: aqua;
+}

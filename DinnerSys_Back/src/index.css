@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap');
 
-
 body {
   height: 100vh;
   font-size: 20px;
@@ -9,20 +8,18 @@ body {
   color: darkgray;
   margin: 0;
   padding: 0;
-  position: relative;
-  align-items: center;
 }
 
 form {
   background-color: #252525;
-  display: block;
   border: 5px solid darkgray;
   border-radius: 15px;
   padding: 25px;
-  max-width: 100%;
-  margin: 50px;
+  margin: 0 auto;
+  top: 50%;
+  left: 50%;
   position: absolute;
-  transform: translate(-40%, -10%);
+  transform: translate(-50%, -50%);
 }
 
 form .Linealh2 {
@@ -101,6 +98,24 @@ form input {
   bottom: 0;
   -webkit-transition: all 0.50s;
   transition: all 0.50s;
+}
+
+
+/* ESTILOS PARA LA BARRA DE SCROLL */
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: rgb(222, 184, 135, .6);
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+  background-color: #333;
+  box-shadow: 0 0 20px burlywood;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(222, 184, 135, .8);
+  box-shadow: 0 0 20px black;
 }
 
 

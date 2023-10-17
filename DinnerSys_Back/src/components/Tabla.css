@@ -7,6 +7,9 @@
     border-radius: 10px;
     border: 1px solid white;
     overflow: auto;
+    &::-webkit-scrollbar{
+        display: none;
+    };
 }
 /* El overflow es para que los datos no se vayan a salir del contenedor, es decir, siempre queden dentro del div*/
 
@@ -66,6 +69,23 @@ que no haga saltos de linea */
     border-radius: 10px;
 }
 
+.tabla-form tbody td .txtTable{
+    display: block;
+    text-align: center;
+    font-size: 15px;
+    font-size: auto;
+    width: 100%;
+    padding: 0;
+    margin: 0 auto;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+.tabla-form tbody .trMesasNoOcupadas{
+    background-color: rgba(139, 0, 0, 0.25);
+}
+
 
 /* Cuando pongamos el mouse encima de una fila */
 .tabla-form tbody tr:hover {
@@ -82,7 +102,7 @@ que no haga saltos de linea */
 }
 /* Cuando se le haga hover al checkbox y este sin checked se hara una sombrita color blanco */
 .tabla-form tbody tr:hover input[type="checkbox"]{
-    box-shadow: 0 0 4px black;
+    box-shadow: 0 0 10px salmon;
 }
 
 /* Estilo zebra */
@@ -101,7 +121,7 @@ tbody tr:nth-of-type(even) {
 /* Para el input type checkbox */
 /* Esto es para alinear los checkbox de la tabla al centro */
 
-.tabla-form tbody input {
+.tabla-form tbody input[type="checkbox"] {
     display: block;
     margin: 0 auto;
     appearance: none;
@@ -109,7 +129,8 @@ tbody tr:nth-of-type(even) {
     background-color: transparent;
     padding: 5px;
     border-radius: 20px;
-    border: 1px solid white;
+    border: 1px solid salmon;
+    background-color: salmon;
 }
 
 .tabla-form tbody input[type="checkbox"]:checked {
@@ -117,9 +138,7 @@ tbody tr:nth-of-type(even) {
     background-color: greenyellow;
 }
 
-/* Clase del contenedor del boton */
-/* Para alinear donde queramos */
-.container-btn{
+.tabla-container-btn{
     margin-left: 10px;
     text-align: left;
 }

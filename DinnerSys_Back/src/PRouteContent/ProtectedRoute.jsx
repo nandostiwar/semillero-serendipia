@@ -1,5 +1,6 @@
 import { Navigate, Outlet } from "react-router-dom";
 import { useAuth } from "../auth/AuthProvider";
+import { useState } from "react";
 
 /*Esta función es para cuando se quiera proteger una ruta con un auth que es la abrevación de authentication
 y dice que si el auth es diferente de null, entonces redirija al componente hijo que está dentro de el*/
@@ -7,6 +8,22 @@ export const ProtectedRoute = ({redirectTo='/'}) => {
     const { isAuthenticated } = useAuth();
     return isAuthenticated ? <Outlet/> : <Navigate to={redirectTo}/>
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // /*Esta función es para las rutas protegidas y para si hay algún parámetro que se capture en el id o algo, este se capture 
 // y se pueda usar para comparar si ese dato es igual al del localStorage y demás*/
