@@ -108,14 +108,13 @@ form input {
 }
 
 ::-webkit-scrollbar-thumb {
-  border-radius: 20px;
+  border-left: 1px solid rgb(222, 184, 135, .6);
+  border-radius: 20px 0 20px;
   background-color: #333;
-  box-shadow: 0 0 20px burlywood;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: rgb(222, 184, 135, .8);
-  box-shadow: 0 0 20px black;
+  background-color: #222;
 }
 
 

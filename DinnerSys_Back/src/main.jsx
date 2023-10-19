@@ -12,6 +12,7 @@ import { AuthProvider } from './auth/AuthProvider';
 import Navbar from './components/Navbar';
 import MeseroHome from './pages/MeseroHome';
 import Carrusel from './components/Carrusel';
+import PedidosRealizados from './pages/PedidosRealizados';
 
 /* Instalar: 
 react-router-dom -> para las rutas y navegación por las páginas
@@ -42,6 +43,10 @@ const routes = createBrowserRouter([
       {
         path: "/Mesero/:MsroId/Home",
         element: <MeseroHome />
+      },
+      {
+        path: "/Mesero/:MsroId/PedidosRealizados",
+        element: <PedidosRealizados/>
       }
     ],
   },

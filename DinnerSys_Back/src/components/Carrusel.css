@@ -12,11 +12,11 @@
     padding: 10px 0;
     margin: 0 0 50px;
     transform: translate(-50%);
-    overflow: scroll;
     align-items: center;
     scroll-behavior: smooth;
     transition: .1s ease-in;
-
+    overflow-x: scroll;
+    overflow-y: hidden;
     &::-webkit-scrollbar {
         display: none;
         /* Para ocultar la barra de navegación */

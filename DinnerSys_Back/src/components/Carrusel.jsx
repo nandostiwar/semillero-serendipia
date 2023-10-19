@@ -3,14 +3,12 @@ import './Carrusel.css';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../auth/AuthProvider';
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { UpdateMesa } from "../API/RestauranteApi";
-import Pedido from "../pages/Pedido";
-
+import { DeletePedidoXMesaId, UpdateMesa } from "../API/RestauranteApi";
 
 export default function Carrusel({ Mesas }) {
+    const { UserId: MsroId } = useAuth();
     //Para saber cual mesa se seleccionó y que solo se pueda seleccionar una mesa
     const [MesaATomarPedido, setMesaATomarPedido] = useState(null);
-    const { UserId: MsroId } = useAuth();
     const navigate = useNavigate();
 
     const MesaCheckeada = (id, isChecked) => {
@@ -23,33 +21,48 @@ export default function Carrusel({ Mesas }) {
         }
     };
 
-    // Para actualizar (CantidadClientes===0) la mesa que estaba ocupada y que fue seleccionada
     const queryClient = useQueryClient();
-
+    
+    // Para actualizar (CantidadClientes===0) la mesa que estaba ocupada y que fue seleccionada
     const LiberarMesa = useMutation({
         mutationFn: UpdateMesa,
         onSuccess: () => {
             queryClient.invalidateQueries('Mesas');
-            alert("Modificado");
+            // alert("Modificado");
         },
         onError: (error) => {
             alert(`error: ${error}`);
         }
     });
 
-    const OnLiberar = (Mesa) => {
+    const EliminarPedidoXMesaId = useMutation({
+        mutationFn: DeletePedidoXMesaId,
+        onSuccess: () => {
+            queryClient.invalidateQueries('Pedidos');
+        },
+        onError: (error) => {
+            alert(`error: ${error}`);
+        }
+    });
+
+    const OnHandleClickLiberar = (Mesa) => {
         /* Creamos la mesa y le ponemos todos los atributos que tiene la mesa que solicitamos y solo actualizamos el 
         CantidadClientes*/
         let NewMesa = {
             ...Mesa,
             CantidadClientes: 0,
         }
-        // console.log(NewMesa);
-        return NewMesa;
+
+        LiberarMesa.mutate(NewMesa);
+
+        /* Ahora, procedemos a eliminar el pedido por el Id de la Mesa Seleccionada */
+        EliminarPedidoXMesaId.mutate(Mesa.id);
+
+
     };
 
-    function OnOrdenar(Mesa){
-        localStorage.setItem("Mesa",JSON.stringify(Mesa));
+    function OnOrdenar(Mesa) {
+        localStorage.setItem("Mesa", JSON.stringify(Mesa));
         navigate(`/Mesero/${MsroId}/Pedidos`);
     };
 
@@ -64,7 +77,7 @@ export default function Carrusel({ Mesas }) {
                         <input type="checkbox" id={`checkbox${mesa.id}`} name="mesasSelect" checked={mesa.CantidadClientes > 0} readOnly />
                         <label htmlFor={`checkbox${mesa.id}`} className='circulo-container'> <span className='icon-mesas'> </span> <p> {mesa.id} </p> </label>
                         <div className="carrusel-container-btn">
-                            <button className="btnCarrusel" onClick={() => LiberarMesa.mutate(OnLiberar(mesa))}  > Liberar </button>
+                            <button className="btnCarrusel" onClick={() => OnHandleClickLiberar(mesa)}  > Liberar </button>
                         </div>
                     </div>
 
@@ -85,7 +98,7 @@ export default function Carrusel({ Mesas }) {
                         <label htmlFor={`checkbox${mesa.id}`} className='circulo-container'> <span className='icon-mesas'> </span> <p> {mesa.id} </p> </label>
                         {MesaATomarPedido === mesa.id &&
                             <div className="carrusel-container-btn">
-                                <button id={`checkbox${mesa.id}`} type='button' className="btnCarrusel" onClick={()=>OnOrdenar(mesa)}> Ordenar </button>
+                                <button id={`checkbox${mesa.id}`} type='button' className="btnCarrusel" onClick={() => OnOrdenar(mesa)}> Ordenar </button>
                             </div>
                         }
                     </div>

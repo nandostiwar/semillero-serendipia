@@ -16,6 +16,7 @@ export default function Navbar() {
                         <li> <a href={`/Mesero/${UserId}/Home`}> Perfil </a> </li>
                         <li > <a href={`/Mesero/${UserId}`}> Mesas </a> </li>
                         <li> <a href={`/Mesero/${UserId}/Pedidos`}> Pedidos </a> </li>
+                        <li> <a href={`/Mesero/${UserId}/PedidosRealizados`}> Pedidos Realizados </a> </li>
                         <li className='li-button'> <a onClick={onHandleSubmit}> Cerrar Sesión </a> </li>
                     </ul>
                 </nav>
