@@ -3,7 +3,7 @@ import './Carrusel.css';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../auth/AuthProvider';
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { DeletePedidoXMesaId, UpdateMesa } from "../API/RestauranteApi";
+import { DeletePedido, UpdateMesa, getPedidosXMesaId } from "../API/RestauranteApi";
 
 export default function Carrusel({ Mesas }) {
     const { UserId: MsroId } = useAuth();
@@ -11,7 +11,7 @@ export default function Carrusel({ Mesas }) {
     const [MesaATomarPedido, setMesaATomarPedido] = useState(null);
     const navigate = useNavigate();
 
-    const MesaCheckeada = (id, isChecked) => {
+    const MesaCheckeada = (id) => {
         if (MesaATomarPedido === id) {
             setMesaATomarPedido(null);
             // Esto es para deseleccionar la mesa
@@ -36,7 +36,7 @@ export default function Carrusel({ Mesas }) {
     });
 
     const EliminarPedidoXMesaId = useMutation({
-        mutationFn: DeletePedidoXMesaId,
+        mutationFn: DeletePedido,
         onSuccess: () => {
             queryClient.invalidateQueries('Pedidos');
         },
@@ -45,7 +45,7 @@ export default function Carrusel({ Mesas }) {
         }
     });
 
-    const OnHandleClickLiberar = (Mesa) => {
+    const OnHandleClickLiberar = async (Mesa) => {
         /* Creamos la mesa y le ponemos todos los atributos que tiene la mesa que solicitamos y solo actualizamos el 
         CantidadClientes*/
         let NewMesa = {
@@ -56,7 +56,10 @@ export default function Carrusel({ Mesas }) {
         LiberarMesa.mutate(NewMesa);
 
         /* Ahora, procedemos a eliminar el pedido por el Id de la Mesa Seleccionada */
-        EliminarPedidoXMesaId.mutate(Mesa.id);
+        const Pedido = await getPedidosXMesaId(Mesa.id);
+        console.log(Pedido[0].id);
+
+        EliminarPedidoXMesaId.mutate(Pedido[0].id);
 
 
     };
@@ -94,7 +97,7 @@ export default function Carrusel({ Mesas }) {
                 </div>
                 {Mesas.filter(me => me.CantidadClientes === 0).map(mesa => (
                     <div key={mesa.id}>
-                        <input type="checkbox" id={`checkbox${mesa.id}`} checked={MesaATomarPedido === mesa.id} onChange={(ev) => { MesaCheckeada(mesa.id, ev.target.checked) }} />
+                        <input type="checkbox" id={`checkbox${mesa.id}`} checked={MesaATomarPedido === mesa.id} onChange={() => { MesaCheckeada(mesa.id) }} />
                         <label htmlFor={`checkbox${mesa.id}`} className='circulo-container'> <span className='icon-mesas'> </span> <p> {mesa.id} </p> </label>
                         {MesaATomarPedido === mesa.id &&
                             <div className="carrusel-container-btn">

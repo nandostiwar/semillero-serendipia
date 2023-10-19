@@ -79,10 +79,16 @@ export const getPedidos = async () => {
     return lstPedidos.data;
 };
 
-//GetPedidosXMeseroId --> Obtener Todos Los Pedidos Por MeserioId 
+//GetPedidosXMeseroId --> Obtener Todos Los Pedidos Por MeseroId 
 export const getPedidosXMeseroId = async (MsroId) => {
     const lstPedidosXMesero = await RestauranteAPI.get(`/Pedidos/?MeseroId=${MsroId}`);
     return lstPedidosXMesero.data;
+};
+
+//GetPedidosXMesaId --> Obtener Todos Los Pedidos Por MesaId
+export const getPedidosXMesaId = async (MesaId) => { 
+    const lstPedidosXMesaId = await RestauranteAPI.get(`/Pedidos/?MesaId=${MesaId}`);
+    return lstPedidosXMesaId.data;
 };
 
 //UpdatePedido --> Actualizar Un Pedido Por Un Nuevo Pedido
@@ -90,6 +96,3 @@ export const UpdatePedido = (newPedido) => RestauranteAPI.put(`/Pedidos/${newPed
 
 //DeletePedido --> Eliminar Un Pedido Por Id
 export const DeletePedido = (PedidoId) => RestauranteAPI.delete(`/Pedidos/${PedidoId}`);
-
-//DeletePedidoXMesaId --> Eliminar Un Pedido Por MesaId
-export const DeletePedidoXMesaId = (MesaId) => RestauranteAPI.delete(`/Pedidos/?MesaId=${MesaId}`,MesaId);

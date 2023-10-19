@@ -24,7 +24,8 @@ export default function PedidosRealizados() {
             <div>
                 {Pedidos.map((pedido) => (
                     <div key={pedido.id}>
-                        <h3> Pedido N°{pedido.id} </h3>
+                        <h3> Pedido N°{pedido.id} <br/>
+                         NMesa: {pedido.MesaId} </h3>
                         {pedido.Productos.map((productoID) => {
                             // Busca el producto correspondiente en la lista de todos los productos
                             const ProductosXPedido = Productos.find((producto) => producto.id === productoID);

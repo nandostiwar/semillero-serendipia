@@ -34,7 +34,7 @@
     {
       "id": 4,
       "MeseroId": 1,
-      "CantidadClientes": 2
+      "CantidadClientes": 0
     },
     {
       "id": 5,
@@ -49,12 +49,12 @@
     {
       "id": 7,
       "MeseroId": 1,
-      "CantidadClientes": "3"
+      "CantidadClientes": 0
     },
     {
       "id": 8,
       "MeseroId": 1,
-      "CantidadClientes": 3
+      "CantidadClientes": 0
     }
   ],
   "Productos": [
@@ -114,53 +114,5 @@
       "Precio": 13000
     }
   ],
-  "Pedidos": [
-    {
-      "id": 1,
-      "NombreCliente": "Edwin Gutierrez",
-      "MesaId": 8,
-      "MeseroId": 1,
-      "Productos": [
-        2,
-        3,
-        10
-      ],
-      "PrecioTotal": 56200
-    },
-    {
-      "id": 2,
-      "NombreCliente": "Cristina Acosta",
-      "MesaId": 4,
-      "MeseroId": 1,
-      "Productos": [
-        3,
-        9,
-        11,
-        1
-      ],
-      "PrecioTotal": 81000
-    },
-    {
-      "NombreCliente": "Juan Jose",
-      "MesaId": 7,
-      "MeseroId": 1,
-      "Productos": [
-        1,
-        3,
-        5
-      ],
-      "PrecioTotal": 46200,
-      "id": 3
-    },
-    {
-      "NombreCliente": "marlon",
-      "MesaId": 2,
-      "MeseroId": 1,
-      "Productos": [
-        3
-      ],
-      "PrecioTotal": 18000,
-      "id": 4
-    }
-  ]
+  "Pedidos": []
 }
